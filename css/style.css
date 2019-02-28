@@ -202,7 +202,7 @@ Login
 }
 
 .input-group-prepend span {
-	width: 35px; background-color : #DAA552;
+	background-color : #DAA552;
 	color: black;
 	border: 0 !important;
 	background-color: #DAA552;
@@ -252,4 +252,19 @@ input:focus {
 .username {
 	width: 90% !important;
 	margin-top: 1px !important;
+}
+
+
+
+.username-profile {
+	width: 70% !important;
+	margin-top: 1px !important;
+}
+
+.input-group-prepend-profile span {
+	background-color : #DAA552;
+	color: black;
+	border: 0 !important;
+	background-color: #DAA552;
+	width: 30% !important;
 }
