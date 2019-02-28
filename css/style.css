@@ -196,6 +196,11 @@ Login
 	color: white;
 }
 
+.card-header h4 {
+	color: white;
+	margin-bottom: -8px ;
+}
+
 .social_icon {
 	position: absolute;
 	right: 20px;
@@ -292,4 +297,61 @@ input:focus {
 
 .profileText {
 	margin-top: 5px !important;
+}
+
+.parameter-label{
+	padding: 8px; 
+	text-align: left;
+	width:50%;
+}
+
+.parameter-input {
+	width: 50% !important;
+	margin-top: 1px !important;
+}
+
+.FuelQuoteDiv {
+	z-index: 5;
+	margin-top: 8%;
+}
+
+.quoteh-label{
+	padding: 8px; 
+	text-align: left;
+	width:30%;
+}
+
+.quoteh-input {
+	width: 70% !important;
+	margin-top: 1px !important;
+}
+
+.quoteh_btn {
+	color: black;
+	background-color: #DAA552;
+}
+
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #a2a2a2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #DAA552;
+  color: white;
 }
