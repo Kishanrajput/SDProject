@@ -42,12 +42,12 @@
 				<h3 class="profileText">Your Fuel Quote</h3>
 			</div>
 			<div class="card-body col-lg-12">
-				<form>
+				<form onsubmit="successfull()">
 
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="parameter-label floatLeft">Number of Gallons*  </span>
-							<span><input type="number" class="parameter-input form-control" placeholder=""></span>
+							<span><input type="number" class="parameter-input form-control" placeholder="" id="ngallons" required></span>
 						</div>
 					</div>
 					<div class="input-group form-group col-lg-12 top-10">
@@ -60,12 +60,12 @@
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="parameter-label floatLeft">Delivery Date*  </span>
-							<span><input type="date" class="parameter-input form-control" placeholder=""></span>
+							<span><input type="date" class="parameter-input form-control" id="deliverydate" required></span>
 						</div>
 					</div>
 
 					<div class="form-group" style="text-align: center;">
-						<input type="submit" value="Get Quote" class="btn float-right login_btn">
+						<input type="submit" value="Get Quote" class="btn float-right login_btn" onclick=" return validate1()">
 					</div>
 					
 					<div class="input-group form-group col-lg-12 top-10">
@@ -97,22 +97,22 @@
 				<h3 class="profileText">Your Fuel Quote History</h3>
 			</div>
 			<div class="card-body col-lg-12">
-				<form>
+				<form onsubmit="successfull()">
 					<div class="input-group form-group col-lg-5 top-10 floatLeft">
 						<div class="textLabel">
 							<span class="quoteh-label floatLeft">From*  </span>
-							<span><input type="date" class="quoteh-input form-control"></span>
+							<span><input type="date" class="quoteh-input form-control" id="fromdate" required></span>
 						</div>
 					</div>
 					<div class="input-group form-group col-lg-5 col-lg-offset-1 top-10 floatLeft">
 						<div class="textLabel">
 							<span class="quoteh-label floatLeft">To*  </span>
-							<span><input type="date" class="quoteh-input form-control" style='margin-left:-20px'></span>
+							<span><input type="date" class="quoteh-input form-control" style='margin-left:-20px' id="todate" required></span>
 						</div>
 					</div>
 
 					<div class="form-group col-lg-1 top-10 floatRight" style="text-align: center;">
-						<input type="submit" value="Go" class="btn float-right quoteh_btn">
+						<input type="submit" value="Go" class="btn float-right quoteh_btn" onclick="return validate2()">
 					</div>
 				</form>
 
@@ -171,7 +171,54 @@
 			</div>
 		</footer>
 	</div>
-
+<script>
+	function successfull(){
+		alert("Validation success!");
+	}
+	function validate1()
+	{
+		var ngallons = document.getElementById("ngallons");
+		var ddate = document.getElementById("deliverydate");
+		
+	/*	if(ngallons == "")
+		{
+			alert("Numbers of gallons can not be empty!");
+			return false;
+		}
+		else if(ddate == "")
+		{
+			alert("Delivery date can not be empty!");
+			return false;
+		} */
+		return true;
+		
+	}
+	
+	function validate2()
+	{
+		var fromdate = document.getElementById("fromdate").value;
+		var todate = document.getElementById("todate").value;
+		
+	/*	if(fromdate == "")
+		{
+			alert("From date field is empty! Please select a date.");
+			return false;
+		}
+		else if(todate == "")
+		{
+			alert("To date field is empty! Please select a date.");
+			return false;
+		} */
+		if(fromdate.value > todate.value)
+		{
+			alert("Invalid date range!");
+			fromdate.value = "";
+			todate.value = "";
+			return false;
+		}
+		return true;
+	}
+</script>
 
 
 </body>

@@ -45,49 +45,51 @@
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">First Name*  </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="30" id="firstname" required></span>
 						</div>
 					</div>
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Last name*  </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="30" id="lastname" required></span>
 						</div>
 					</div>
 					
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Email*  </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="50" id="email" required></span>
 						</div>
 					</div>
 					
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Phone </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="10" id="phone" required></span>
 						</div>
 					</div>
 
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Address-1* </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="100" id="add1" required></span>
 						</div>
 					</div>
 
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Address-2 </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="100" id="add2"></span>
 						</div>
 					</div>
 
 					<div class="input-group form-group col-lg-12 top-10" >
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">State* </span>
-							<span><Select class="username-profile form-control">
+							<span><Select class="username-profile form-control" id="state">
 								  <option value="None">Select</option>
+								  <option value="TX">TX</option>
+								  <option value="CA">CA</option>
 								</select>
 							</span>
 						</div>
@@ -96,9 +98,7 @@
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">City* </span>
-							<span><select class="username-profile form-control">
-								<option value="None">Select</option>
-								</select>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="100" id="city" required>
 							</span>
 						</div>
 					</div>
@@ -106,13 +106,13 @@
 					<div class="input-group form-group col-lg-12 top-10">
 						<div class="textLabel">
 							<span class="user-profile-label floatLeft">Zip* </span>
-							<span><input type="text" class="username-profile form-control" placeholder=""></span>
+							<span><input type="text" class="username-profile form-control" placeholder="" maxlength="9" id="zip" required></span>
 						</div>
 					</div>
 					
 					
 					<div class="form-group" style="text-align: center;">
-						<input type="submit" value="Update" class="btn float-right login_btn">
+						<input type="submit" value="Update" class="btn float-right login_btn" onclick="return validate()">
 					</div>
 				</form>
 			</div>
@@ -132,7 +132,26 @@
 		</footer>
 	</div>
 
-
+<script>
+	function validate()
+	{
+		var stateelement = document.getElementById("state");
+		var state = stateelement.options[stateelement.selectedIndex].value;
+		if(state == "None")
+		{
+			alert("Please select state!");
+			return false;
+		}
+		var zip = document.getElementById("zip");
+		if(zip.value.length < 5)
+		{
+			alert("Please enter a valid zip code!");
+			zip.value = "";
+			return false;
+		}
+		return true;
+	}
+</script>
 
 </body>
 

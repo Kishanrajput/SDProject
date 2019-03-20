@@ -41,29 +41,29 @@
 				
 			</div>
 			<div class="card-body col-lg-12">
-				<form>
+				<form onsubmit="successfull()">
 					<div class="input-group form-group col-lg-12">
 						<div class="input-group-prepend">
 							<span class="floatLeft input-group-text glyphicon glyphicon-user" style="padding: 10px;"></span>
-							<span><input type="text" class="username form-control" placeholder="Username"></span>
+							<span><input type="text" class="username form-control" placeholder="Username" id="username" required></span>
 						</div>
 					</div>
 					<div class="input-group form-group col-lg-12">
 						<div class="input-group-prepend">
 							<span class="floatLeft input-group-text glyphicon glyphicon-eye-close" style="padding: 10px;"></span>
-							<span><input type="password" class="username form-control" placeholder="Password"></span>
+							<span><input type="password" class="username form-control" placeholder="Password" id="password" required></span>
 						</div>
 					</div>
 					
 					<div class="input-group form-group col-lg-12">
 						<div class="input-group-prepend">
 							<span class="floatLeft input-group-text glyphicon glyphicon-eye-close" style="padding: 10px;"></span>
-							<span><input type="password" class="username form-control" placeholder="Confirm Password"></span>
+							<span><input type="password" class="username form-control" placeholder="Confirm Password" id="cpassword" required></span>
 						</div>
 					</div>
 					
 					<div class="form-group" style="text-align: center;">
-						<input type="submit" value="Register" class="btn float-right login_btn">
+						<input type="submit" value="Register" class="btn float-right login_btn" onclick="return validate()">
 					</div>
 				</form>
 			</div>
@@ -83,6 +83,56 @@
 		</footer>
 	</div>
 
+<script>
+	function successfull()
+	{
+		alert("Validation successfull!");
+	}
+	function validate()
+	{
+		var username = document.getElementById("username");
+		var password = document.getElementById("password");
+		var cpassword = document.getElementById("cpassword");
+		/*if(username == "")
+		{
+			alert("Username can not be empty!");
+			return false;
+		}
+		else if(password == "")
+		{
+			alert("Password can not be empty!");
+			return false;
+		}*/
+		var passwordvalue = password.value.trim();
+		var cpasswordvalue = cpassword.value.trim();
+		if(username.value.trim().indexOf(' ') >= 0)
+		{
+			alert("Username can not have whitespace!");
+			username.value = "";
+			return false;
+		}
+		else if(passwordvalue.indexOf(' ') >= 0)
+		{
+			alert("Password can not containe whitespaces!");
+			password.value = "";
+			cpassword.value = "";
+			return false;
+		}
+		else if(passwordvalue.length() < 5)
+		{
+			alert("Password can not be less than 5 characters long!");
+			return false;
+		}
+		else if(passwordvalue != cpasswordvalue)
+		{
+			alert("Password did not match, please try again!");
+			password.value = "";
+			cpassword.value = "";
+			return false;
+		}
+		return true;
+	}
+</script>
 
 
 </body>
